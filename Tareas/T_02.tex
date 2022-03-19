@@ -1,0 +1,544 @@
+  \documentclass[10pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}  
+
+%%%%%%%% PREÁMBULO %%%%%%%%%%%%
+\title{Plantilla para reportes IMEC-UTB}
+\usepackage[spanish]{babel} %Indica que escribiermos en español
+\usepackage[utf8]{inputenc} %Indica qué codificación se está usando ISO-8859-1(latin1)  o utf8  
+\usepackage{amsmath} % Comandos extras para matemáticas (cajas para ecuaciones,
+% etc)
+\usepackage{rotating}%rotar mis tablasw
+\usepackage{amssymb} % Simbolos matematicos (por lo tanto)
+\usepackage{graphicx} % Incluir imágenes en LaTeX
+\usepackage{color} % Para colorear texto
+\usepackage{subfigure} % subfiguras
+\usepackage{float} %Podemos usar el especificador [H] en las figuras para que se
+% queden donde queramos
+\usepackage[T1]{fontenc}
+\usepackage{pdfsync}
+\usepackage[nottoc]{tocbibind}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\usepackage{changepage}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{url}
+\usepackage[export]{adjustbox}
+\usepackage{pstricks}
+\usepackage{capt-of} % Permite usar etiquetas fuera de elementos flotantes
+% (etiquetas de figuras)
+\usepackage{sidecap} % Para poner el texto de las imágenes al lado
+	\sidecaptionvpos{figure}{c} % Para que el texto se alinie al centro vertical
+\usepackage{caption} % Para poder quitar numeracion de figuras
+\usepackage{commath} % funcionalidades extras para diferenciales, integrales,
+% etc (\od, \dif, etc)
+\usepackage{cancel} % para cancelar expresiones (\cancelto{0}{x})
+\usepackage{anysize}% Para personalizar el ancho de  los márgenes
+\marginsize{2cm}{2cm}{2cm}{2cm} % Izquierda, derecha, arriba, abajo
+\usepackage{appendix}
+\renewcommand{\appendixname}{Apéndices}
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices} 
+
+% Para que las referencias sean hipervínculos a las figuras o ecuaciones y
+% aparezcan en color
+\usepackage[colorlinks=true,plainpages=true,citecolor=blue,linkcolor=blue]{hyperref}
+% Para agregar encabezado y pie de página
+\usepackage{fancyhdr} 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize IPN} %encabezado izquierda
+\fancyhead[R]{\footnotesize ESFM}   % dereecha
+\fancyfoot[R]{\footnotesize Tarea 02}  % Pie derecha
+\fancyfoot[C]{\thepage}  % centro
+\fancyfoot[L]{\footnotesize Ingeniería Matemática }  %izquierda
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+\usepackage{listings} % Para usar código fuente
+\definecolor{dkgreen}{rgb}{0,0.6,0} % Definimos colores para usar en el código
+\definecolor{gray}{rgb}{0.5,0.5,0.5} 
+% configuración para el lenguaje que queramos utilizar
+\lstset{language=Matlab,
+   keywords={break,case,catch,continue,else,elseif,end,for,function,
+      global,if,otherwise,persistent,return,switch,try,while},
+   basicstyle=\ttfamily,
+   keywordstyle=\color{blue},
+   commentstyle=\color{red},
+   stringstyle=\color{dkgreen},
+   numbers=left,
+   numberstyle=\tiny\color{gray},
+   stepnumber=1,
+   numbersep=10pt,
+   backgroundcolor=\color{white},
+   tabsize=4,
+   showspaces=false,
+   showstringspaces=false}
+\newcommand{\sen}{\operatorname{\sen}}	
+
+\title{Plantilla para tareas ESFM}
+
+%%%%%%%% TERMINA PREÁMBULO %%%%%%%%%%%%
+
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+																					%%%
+\begin{center}																		%%%
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}									%%%\left
+ 																					%%%
+\begin{minipage}{0.48\textwidth} \begin{flushleft}
+\includegraphics[scale = 0.71]{IPN.JPG}
+\end{flushleft}\end{minipage}
+\begin{minipage}{0.48\textwidth} \begin{flushright}
+\includegraphics[scale = 0.67]{ESFM.pdf}
+\end{flushright}\end{minipage}
+
+													 								%%%
+\vspace*{1.0cm}								%%%
+																					%%%	
+\textsc{\huge Instituto Politécnico Nacional \\ \vspace{5px} Escuela Superior de Física y Matemáticas}\\[1.5cm]	
+
+\textsc{\LARGE  Ingeniería Matemática \\ \vspace{5px} Línea Financiera }\\[1.5cm]													%%%
+
+
+%%%
+    																				%%%
+ 			\vspace*{1cm}																		%%%
+																					%%%
+\HRule \\[0.4cm]																	%%%
+{ \huge \bfseries Tarea 02: Distribuciones de probabilidad}\\[0.4cm]	%%%
+ 																					%%%
+\HRule \\[1 cm]																	%%%
+ 																				%%%
+																					%%%
+\begin{minipage}{0.46\textwidth}													%%%
+\begin{flushleft} \large															%%%
+
+% Aqui a continuación pongan los nombres de los integrantes
+\emph{Alumno:}\\	
+Yañez Perez Gabriel Osvaldo\\
+Boleta: 2019330158\\
+Correo electronico: gyanezp1500@alumno.ipn.mx\\
+Grupo: 8MM1
+%%%
+			%\vspace*{2cm}	
+            													%%%
+										 						%%%
+\end{flushleft}																		%%%
+\end{minipage}		
+																%%%
+\begin{minipage}{0.52\textwidth}		
+\vspace{-0.6cm}											%%%
+\begin{flushright} \large															%%%
+\emph{Profesor:} \\																	%%%
+Medel Esquivel Ricardo\\
+													%%%
+\end{flushright}																	%%%
+\end{minipage}	
+\vspace*{1cm}
+%\begin{flushleft}
+ 	
+%\end{flushleft}
+%%%
+ 		\flushleft{\textbf{\Large Simulación II}	}\\																		%%
+\vspace{2cm} 																				
+\begin{center}	
+Ciudad de México  \\
+{\large \today}																	%%%
+ 			\end{center}												  						
+\end{center}							 											
+																					
+\newpage																			
+%%%%%%%%%%%%%%%%%%%% TERMINA PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents 
+\newpage
+
+\section{Variables aleatorias discretas}
+
+\subsection{Definición básica}
+Se dice que una variable aleatoria \textit{Y} es discreta si puede tomar sólo un número finito o contablemente infinito de valores distintos.\\
+De modo notacional usaremos una letra mayúscula, por ejemplo \textit{Y}, para denotar una \textbf{variable aleatoria} y una letra minúscula, por ejemplo \textit{y}, para denotar un \textbf{valor particular} que puede tomar una variable aleatoria.\\
+La probabilidad de que \textit{Y} tome el valor \textit{y}, \textit{P(Y=y)}, se define como la suma de las probabilidades de todos los puntos muestrales en \textit{S} a los que se asigna el valor \textit{y}.\\
+Una \textbf{distribución de probabilidad} para una variable discreta \textit{Y} puede ser representada por una fórmula, una tabla o una gráfica que produzca $p(y)=P(Y=y)$ para toda \textit{y}.\\
+\textbf{Distribución de probabilidad para Y}\\
+\begin{tabular}{p{0.900\textwidth} p{0.910\textwidth} }
+\includegraphics[width=1\textwidth, center]{captura01.PNG}
+\end{tabular}\\
+Sea \textit{Y} una variable aleatoria discreta con la función de probabilidad \textit{p(y)}. Entonces el \textbf{valor esperado} de \textit{Y}, \textit{E(Y)}, se define como:
+\begin{equation*}
+E(Y)=\sum_y yp(y)
+\end{equation*}
+Si \textit{p(y)} es una caracterización precisa de la distribución de frecuencia poblacional, entonces $E(Y)=\mu$ es la \textbf{media poblacional}.\\
+Si \textit{Y} es una variable aleatoria con media $E(Y)=\mu$, la varianza de una variable aleatoria \textit{Y} se define como el valor esperado de $(Y-\mu)^2$.
+\begin{equation*}
+V(Y)=E[(Y-\mu)^2]
+\end{equation*}
+La \textit{desviación estándar} de \textit{Y} es la raíz cuadrda positiva de \textit{V(Y)}
+\begin{equation*}
+V(Y)=\sigma^2
+\end{equation*}
+$\sigma^2$ es la varianza poblacional y $\sigma$ es la desviación estándar poblacional.
+
+
+\subsection{La distribución de probabilidad binomial}
+Se dice que una variable aleatoria \textit{Y} tiene una \textit{distribución binomial} basada en \textit{n} pruebas con probabilidad \textit{p} de éxito y si y sólo si.
+\begin{equation*}
+p(y)=\begin{pmatrix}
+&n&\\
+&y&
+\end{pmatrix}
+p^yq^{n-y}\; \; \; \; \; \; \; \; \; \;     y=0,1,2,...,n \;\; \;y \; \; \;0\leq p \geq 1
+\end{equation*}\\
+Sea \textit{Y} una variable aleatoria binomial basada en \textit{n} pruebas y probabilidad  \textit{p} de éxito.\\
+Entonces
+\begin{align*}
+\mu&=E(Y)=np\\
+\sigma^2&=V(Y)=npq
+\end{align*}
+Histogramas de probabilidad binomial.\\
+\begin{tabular}{p{0.900\textwidth} p{0.910\textwidth} }
+\includegraphics[width=1\textwidth, center]{captura02.PNG}
+\end{tabular}\\
+\begin{tabular}{p{0.900\textwidth} p{0.910\textwidth} }
+\includegraphics[width=1\textwidth, center]{captura03.PNG}
+\end{tabular}\\
+La distribución de probabilidad binomial tiene muchas aplicaciones porque el experimento 
+binomial se presenta al muestrear defectos en control de calidad industrial, en el muestreo de 
+preferencia de los consumidores o en poblaciones de votantes y en muchas otras situaciones 
+físicas.
+
+
+
+\subsection{La distribución de probabilidad geométrica}
+Se dice que una variable aleatoria \textit{Y} tiene una \textit{distribución de pobabilidad geométrica} si y sólo si.
+\begin{equation*}
+p(y)=q^{y-1}p\; \; \; \; \; \; \; \; \; \;     y=0,1,2,...,n \;\; \;y \; \; \;0\leq p \geq 1
+\end{equation*}\\
+Sea \textit{Y} una variable aleatoria con una distribución geométrica.\\
+Entonces
+\begin{align*}
+\mu&=E(Y)=\frac{1}{p}\\
+\sigma^2&=V(Y)=\frac{1-p}{p^2}
+\end{align*}
+\begin{tabular}{p{0.900\textwidth} p{0.910\textwidth} }
+\includegraphics[width=1\textwidth, center]{captura04.PNG}
+\end{tabular}\\
+La distribución de probabilidad geométrica se emplea con frecuencia para modelar distribuciones de la duración de tiempos de espera. Por ejemplo, suponga que el motor de un 
+avión comercial recibe atención periódicamente para cambiar sus diversas partes en puntos 
+diferentes de tiempo y que, por tanto, son de edades que varían. Entonces la probabilidad p
+de mal funcionamiento del motor durante cualquier intervalo de operación de una hora observado al azar podría ser el mismo que para cualquier otro intervalo de una hora. El tiempo 
+transcurrido antes de que el motor falle es el número de intervalos de una hora, Y, hasta que 
+ocurra la primera falla. (Para esta aplicación, el mal funcionamiento del motor en un periodo 
+determinado de una hora se defi ne como éxito)
+
+
+
+\subsection{La distribución de probabilidad hipergeométrica}
+Se dice que una variable aleatoria $Y$ tiene \textit{distribución de probabilidad hipergeométrica} si y sólo si.
+\begin{equation*}
+p(y)=\frac{\begin{pmatrix}
+&r&\\
+&y&
+\end{pmatrix}
+\begin{pmatrix}
+&N-r&\\
+&n-y&
+\end{pmatrix}}{
+\begin{pmatrix}
+&N&\\
+&n&
+\end{pmatrix}
+}
+\end{equation*}
+donde $y$ es un entero 0,1,2,...,n,sujeto a las restricciones $y\leq r$ y $n-y\leq N-r$. 
+Si $Y$ es una variable aleatoria con distribución hipergeométrica.\\
+Entonces
+\begin{align*}
+\mu&=E(Y)=\frac{nr}{N}\\
+\sigma^2&=V(Y)=n(\frac{r}{N})(\frac{N-r}{N})(\frac{N-n}{N-1})
+\end{align*}
+
+
+
+\subsection{La distribución de probabilidad Poisson}
+Se dice que una variable aleatoria $Y$ tiene \textit{distribución de probabilidad de Poisson} si y sólo si.
+\begin{equation*}
+p(y)=\frac{\lambda^y}{y!}\exp{-\lambda}\; \; \; \; \; \; \; \; \;y=0,1,2,...\; \; \; \; \; \; \lambda>0
+\end{equation*}
+Si $Y$ es una variable aleatoria que posee una distribución de Poisson con parámetro $\lambda$, entonces
+\begin{align*}
+\mu&=E(Y)=\lambda\\
+\sigma^2&=V(Y)=\lambda
+\end{align*}
+\begin{tabular}{p{0.900\textwidth} p{0.910\textwidth} }
+\includegraphics[width=1\textwidth, center]{captura09.PNG}
+\end{tabular}\\
+
+
+
+
+\newpage
+\subsection{Tabla de resumen}
+
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}[t]{|l |c |c |c |}
+\hline
+Distribucion de Probabilidad & Función de probabilidad p(Y) & Esperanza  & Varianza \\
+\hline
+Binomial  &
+$p(y)=\begin{pmatrix}
+&n&\\
+&y&
+\end{pmatrix}
+p^yq^{n-y}$ & $\mu=E(Y)=np$ & 
+$\sigma^2=V(Y)=npq$ \\
+\hline
+
+Geométrica & $p(y)=q^{y-1}p$ & $\mu=E(Y)=\frac{1}{p}$ &
+$\sigma^2=V(Y)=\frac{1-p}{p^2}$  \\
+\hline
+
+Hipergeométrica & 
+$p(y)=\frac{\begin{pmatrix}
+&r&\\
+&y&
+\end{pmatrix}
+\begin{pmatrix}
+&N-r&\\
+&n-y&
+\end{pmatrix}}{
+\begin{pmatrix}
+&N&\\
+&n&
+\end{pmatrix}}$ & $\mu=E(Y)=\frac{nr}{N}$ &
+$\sigma^2=V(Y)=n(\frac{r}{N})(\frac{N-r}{N})(\frac{N-n}{N-1})$\\
+\hline
+
+
+Poisson & $p(y)=\frac{\lambda^y}{y!}\exp{-\lambda}$  & $\mu=E(Y)=\lambda$ & $\sigma^2=V(Y)=\lambda $\\
+
+\hline
+\end{tabular}
+
+
+
+
+
+
+
+
+\newpage
+\section{Variables aleatorias continuas}
+\subsection{Distribución de probabilidad para una variable aleatoria continua}
+Denote con \textit{Y} cualquier variable aleatoria. \textbf{La función de distribución} de \textit{Y}, denotada por $F(y)$, es tal que $F(y)=P(Y\leq y)$ para $-\infty < y >\infty$\\
+Sea $F(y)$ la función de destribucion para una variable aleatoria continua \textit{Y}. Entonces $f(y)$, dada por\\
+\begin{equation*}
+f(y)=\frac{dF(y)}{dy}=F'(y)
+\end{equation*}\\
+siempre que exista la derivada, se denomina \textbf{función de densidad deprobabilidad} para la variable aleatoria \textit{Y}.
+\begin{equation*}
+F(Y)=\int_{-\infty}^{y}f(t)dt
+\end{equation*}
+donde \textit{f()} es la función de desnsidad de la probabilidad y \textit{t} se usa como la variable de integración.\\
+El valor esperado de una varible aleatoria continua \textit{Y} es
+\begin{equation*}
+E(Y)=\int_{-\infty}^{\infty}yf(y)dy
+\end{equation*}
+
+
+
+\subsection{La distribución de probabilidad uniforme}
+Si $\theta_1 < \theta_2$ se dice que un variable aleatoria \textit{Y} tiene \textit{distribución de probabilidad uniforme} en el intervalo $(\theta_1,\theta_2)$ si y solo si la funión de densidad \textit{Y} es
+\begin{equation*}
+f(y)=\left\lbrace\begin{array}{c} \frac{1}{\theta_2 - \theta_1},~\theta_1\leq~ y ~\geq \theta_2
+\\ 0, ~en~ cualquier~ otro ~punto \end{array}\right.
+\end{equation*}\\
+Si $\theta_1<\theta_2$ y $Y$ es una variable aleatoria uniformemente distribuida en el intervaldo $(\theta_1,\theta_2)$, entonces
+\begin{align*}
+\mu&=E(Y)=\frac{\theta_1 +\theta_2}{2}\\
+\sigma^2&=V(Y)=\frac{(\theta_2-\theta_1)^2}{12}
+\end{align*}
+\begin{tabular}{p{0.900\textwidth} p{0.910\textwidth} }
+\includegraphics[width=1\textwidth, center]{captura05.PNG}
+\end{tabular}\\
+Como veremos, la distribución uniforme es muy importante por razones teóricas. Los estudios de \textbf{simulación} son técnicas valiosas para validar modelos en estadística. Si deseamos 
+un conjunto de observaciones de una variable aleatoria Y con función de distribución $F(y)$, a 
+menudo podemos obtener los resultados deseados si transformamos un conjunto de observaciones en una variable aleatoria uniforme. Por esta razón, casi todos los sistemas de cómputo 
+contienen un generador de números aleatorios que produce valores observados para una variable aleatoria que tiene una distribución uniforme continua
+
+
+
+
+
+\subsection{La distribución de probabilidad normal}
+Se dice que un variable aleatoria \textit{Y} tiene \textit{distribución normal de probabilidad } si y sólo si, para $\sigma >0$ y $-\infty<\mu<\infty$, la función de densidad de $Y$ es
+\begin{equation*}
+f(y)=\frac{1}{\sigma\sqrt{2\pi}}exp{-(y-\mu)^2/(2\sigma^2)}
+\end{equation*}
+Si $Y$ es una variable aleatoria normalmente distribuida con párametros $\mu$ y $\sigma$, entonces
+\begin{align*}
+E(Y)&=\mu \\
+V(Y)&=\sigma^2
+\end{align*}\\ 
+\begin{tabular}{p{0.900\textwidth} p{0.910\textwidth} }
+\includegraphics[width=1\textwidth, center]{captura06.PNG}
+\end{tabular}\\
+Esta distribución es frecuentemente utilizada en las
+aplicaciones estadísticas. Su propio nombre indica su extendida utilización,
+justificada por la frecuencia o normalidad con la que ciertos fenómenos tienden
+a parecerse en su comportamiento a esta distribución.\\
+Muchas variables aleatorias continuas presentan una
+función de densidad cuya gráfica tiene forma de campana.\\
+En otras ocasiones, al considerar distribuciones
+binomiales, tipo B(n,p), para un mismo valor de p y valores
+de n cada vez mayores, se ve que sus polígonos de
+frecuencias se aproximan a una curva en "forma de campana".\\
+En resumen, la importancia de la distribución normal se debe principalmente a que hay muchas variables asociadas a fenómenos naturales que siguen el modelo de la normal.
+\begin{itemize}
+\item[]$\blacklozenge$ Caracteres morfológicos de individuos (personas, animales, plantas,...) de una especie, p.ejm. tallas, pesos, envergaduras, diámetros, perímetros,...\\
+\item[]$\blacklozenge$ Caracteres fisiológicos, por ejemplo: efecto de una misma dosis de un fármaco, o de una misma cantidad de abono.\\
+\item[] $\blacklozenge$ Caracteres sociológicos, por ejemplo: consumo de cierto producto por un mismo grupo de individuos, puntuaciones de examen.
+\item[]$\blacklozenge$ Caracteres psicológicos, por ejemplo: cociente intelectual, grado de adaptación a un medio,...
+\item[]$\blacklozenge$ Otras distribuciones como la binomial o la de Poisson son aproximaciones normales, ...
+\end{itemize}
+
+
+
+\subsection{La distribución de probabilidad gamma}
+Se dice que un variable aleatoria \textit{Y} tiene una \textit{distribución gamma} con parámetros $\sigma>0$ y $\beta>0$ si y sólo si la función de densidad de $Y$ es
+\begin{equation*}
+f(y)=\left\lbrace\begin{array}{c} \frac{y^{\sigma-1}\exp{-y/\beta}}{\beta^\sigma \Gamma(\sigma)},~0\leq~ y ~<\infty
+\\ 0, ~en~ cualquier~ otro ~punto \end{array}\right.
+\end{equation*}\\
+donde
+\begin{equation*}
+\Gamma(\sigma)=\int_{0}^{\infty} y^{\sigma-1}\exp{(-y)}dy.
+\end{equation*}
+La cantidad $\Gamma(\sigma)$ se conoce como \textit{función gamma.}
+\\Si $Y$ tiene una distribución gamma con parámetros $\sigma$ y $\beta$, entonces\\
+\begin{align*}
+\mu&=E(Y)=\sigma\beta\\
+\sigma^2&=V(Y)=\sigma\beta^2
+\end{align*}
+\begin{tabular}{p{0.900\textwidth} p{0.910\textwidth} }
+\includegraphics[width=1\textwidth, center]{captura07.PNG}
+\end{tabular}\\
+Es una distribución adecuada para modelizar el comportamiento de variables aleatorias continuas con
+asimetría positiva. Es decir, variables que presentan una mayor densidad de sucesos a la izquierda de la media que a la derecha.\\ En su expresión se encuentran dos parámetros, siempre positivos, ($\sigma$) y ($\beta$) de los que depende su forma y alcance por la derecha, y también la función Gamma $\Gamma(\sigma)$, responsable de la convergencia de la distribución.
+
+
+
+
+
+
+\subsection{La distribución de probabilidad beta}
+Se dice que un variable aleatoria \textit{Y} tiene una \textit{distribución de probabilidad beta con parámetros} $\sigma>0$ y $\beta>0$ si y sólo si la funión de densidad de \textit{Y} es
+\begin{equation*}
+f(y)=\left\lbrace\begin{array}{c} \frac{y^{\alpha-1}(1-y)^{\beta-1}}{B(\sigma,\alpha)},~0\leq~ y ~\leq 1
+\\ 0, ~en~ cualquier~ otro ~punto \end{array}\right.
+\end{equation*}
+donde
+\begin{equation*}
+B(\alpha,\beta)=\int_{0}^{1}y^{\alpha-1}(1-y)^{\beta-1}dy=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}
+\end{equation*}
+Si $Y$ es una variable aleatoria con distribución beta $\alpha > 0$ y $\beta > 0$, entonces
+\begin{align*}
+\mu&=E(Y)=\frac{\alpha}{\alpha+\beta}\\
+\sigma^2&=V(Y)=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}
+\end{align*}
+\begin{tabular}{p{0.900\textwidth} p{0.910\textwidth} }
+\includegraphics[width=1\textwidth, center]{captura08.PNG}
+\end{tabular}\\
+
+
+
+
+
+
+
+\newpage
+\subsection{Tabla de resumen}
+\begin{center}
+%\begin{sideways}
+
+
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}[t]{|c |c |c |c |}
+\hline
+Distribucion de Probabilidad & Función de densidad f(y) & Esperanza  & Varianza \\
+\hline
+Uniforme  & $\frac{1}{\theta_2 - \theta_1}$ & $\mu=E(Y)=\frac{\theta_1 +\theta_2}{2}$&$\sigma^2=V(Y)=\frac{(\theta_2-\theta_1)^2}{12}$\\
+\hline
+
+Normal & $f(y)=\frac{1}{\sigma\sqrt{2\pi}}e^{-(y-\mu)^2/(2\sigma^2)}$ & $E(Y)=\mu$ &
+$V(Y)=\sigma^2$  \\
+\hline
+
+Gamma & $\frac{y^{\sigma-1}e^{-y/\beta}}{\beta^\sigma \Gamma(\sigma)}$ & $\mu=E(Y)=\sigma\beta$ &
+$\sigma^2=V(Y)=\sigma\beta^2$\\
+\hline
+
+
+Beta & $ \frac{y^{\alpha-1}(1-y)^{\beta-1}}{B(\sigma,\alpha)}$  & $\mu=E(Y)=\frac{\alpha}{\alpha+\beta}$ & $\sigma^2=V(Y)=\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$\\
+
+\hline
+\end{tabular}
+%\end{sideways}
+\end{center}
+
+
+
+
+\end{document}
