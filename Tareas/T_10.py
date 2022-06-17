@@ -6,7 +6,6 @@ import yfinance as yf
 
 from scipy import stats
 plt.style.use('seaborn')
-# plt.style.use('seaborn-colorblind') #alternativa
 plt.rcParams['figure.figsize'] = [8, 4.5]
 plt.rcParams['figure.dpi'] = 300
 warnings.simplefilter(action='ignore', category=FutureWarning)
