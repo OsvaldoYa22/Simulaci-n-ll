@@ -25,9 +25,7 @@ ax = returns.plot()
 ax.set_title(f'{RISKY_ASSET} rendimientos: {START_DATE} - {END_DATE}', 
              fontsize=16)
 
-
 plt.tight_layout()
-#plt.savefig('imagen1.png')
 plt.show()
 
 print(f'Rendimiento promedio: {100 * returns.mean():.2f}%')
